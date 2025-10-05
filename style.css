@@ -1,0 +1,213 @@
+
+:root {
+    --bg-color: #f7f9fc;
+    --text-color: #333;
+    --header-bg: #ffffff;
+    --header-color: #2a3f5f;
+    --container-bg: #ffffff;
+    --border-color: #e0e6ed;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --switch-bg: #ccc;
+    --slider-bg: #fff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --header-bg: #222;
+    --header-color: #f0f0f0;
+    --container-bg: #2d2d2d;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --switch-bg: #555;
+    --slider-bg: #f0f0f0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-color);
+    padding: 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Theme Switcher Styles */
+.theme-switcher {
+    position: relative;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--slider-bg);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+main {
+    padding: 2rem;
+}
+
+/* New "About the Data" Section Styles */
+.about-section {
+    max-width: 1600px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--header-color);
+}
+
+.about-section ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.chart-container {
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+}
+
+.chart-container h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--header-color);
+}
+
+#regionCharts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.region-chart {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 2rem;
+    }
+    .header-content {
+        flex-direction: column;
+    }
+    header h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    main {
+        padding: 1rem;
+    }
+    .chart-container h2 {
+        font-size: 1.3rem;
+    }
+    .about-section {
+        font-size: 1rem;
+    }
+}

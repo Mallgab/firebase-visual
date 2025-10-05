@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Usage Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Latvia Internet Usage Insights</h1>
+            <div class="theme-switcher">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="about-section">
+            <h2>About the Data</h2>
+            <p>This website visualizes findings from the dataset “Purposes for Internet Usage by Individuals.”</p>
+            <p>The data record how people use the internet—for example for communication, education, entertainment, online shopping, or e-government services—broken down by gender, age group, region, and year.</p>
+            <p>The original figures come from official national statistics portal.</p>
+            <p>Values are given as percentages of individuals in each demographic group who reported using the internet for each purpose.</p>
+            <p>Dataset is used to create interactive charts that show:</p>
+            <ul>
+                <li>differences between men and women,</li>
+                <li>patterns across age groups,</li>
+                <li>changes over time,</li>
+                <li>and regional comparisons.</li>
+            </ul>
+        </section>
+        <div class="chart-grid">
+            <div class="chart-container" id="gender-container">
+                <h2>Purpose of Use by Gender (2024)</h2>
+                <canvas id="genderChart"></canvas>
+            </div>
+            <div class="chart-container" id="age-container">
+                <h2>Purpose of Use by Age Group (2024)</h2>
+                <canvas id="ageChart"></canvas>
+            </div>
+            <div class="chart-container" id="heatmap-container">
+                <h2>Usage Heatmap by Age (Top 5)</h2>
+                <canvas id="heatmapChart"></canvas>
+            </div>
+            <div class="chart-container" id="trend-container">
+                <h2>Usage Trends Over Time (Top 5)</h2>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-container" id="geo-container">
+                <h2>Top 3 Purposes by Region (2024)</h2>
+                <div id="regionCharts"></div>
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
